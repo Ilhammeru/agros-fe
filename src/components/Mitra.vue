@@ -140,6 +140,7 @@ export default {
 .main_card_mitra {
     background: #FFFFFF;
     border-radius: 10px;
+    height: 110px;
 
     .card-body {
         padding: 16px;
@@ -152,7 +153,7 @@ export default {
             font-size: 18px;
             line-height: 22px;
             color: #000000;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             text-transform: capitalize;
         }
 
