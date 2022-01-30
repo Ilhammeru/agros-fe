@@ -85,6 +85,9 @@ export default {
             console.log(profileGetters)
             return profileGetters
         }
+    },
+    mounted() {
+        this.$store.dispatch("global/resetError")
     }
 }
 </script>

@@ -100,6 +100,8 @@ const actions = {
         .catch(err => {
             context.state.isLoading = false;
             console.log('err update', err)
+            let errors = err.response.data.errors;
+            context.state.errorReq = errors;
         })
     },
     resetError(context) {
