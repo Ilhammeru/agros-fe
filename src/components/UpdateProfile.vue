@@ -75,14 +75,12 @@ export default {
                 password: this.password,
                 role: data.user_roles[0].name
             }
-            console.log(update)
             this.$store.dispatch("global/update", update)
         }
     },
     computed: {
         profile() {
             let profileGetters = this.$store.getters["global/profile"]
-            console.log(profileGetters)
             return profileGetters
         }
     },

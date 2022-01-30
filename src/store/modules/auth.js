@@ -45,8 +45,6 @@ const actions = {
         context.rootState.global.errorReq = [];
         await this._vm.axios.post('/login', payload)
         .then((res) => {
-            console.log(res)
-
             initHeader(res.data.data.token)
             // encrypt
             let encUser   = CryptoJS.AES.encrypt(JSON.stringify(res.data.data.user), process.env.VUE_APP_CRYPTO_KEY).toString();
@@ -62,7 +60,6 @@ const actions = {
             router.push('/');
         })
         .catch((err) => {
-            console.log(err)
             context.rootState.global.isLoading = false;
             let errors = err.response.data.errors;
             context.rootState.global.errorReq = errors;
@@ -78,7 +75,6 @@ const actions = {
         })
         .catch(err => {
             context.rootState.global.isLoading = false;
-            console.log(err);
         })
     },
     clearStorage(context) {

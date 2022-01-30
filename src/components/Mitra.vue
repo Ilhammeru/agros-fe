@@ -95,8 +95,6 @@ export default {
             .then(async (confirmed) => {
                 if (confirmed.isConfirmed) {
                     await this.$store.dispatch("global/delete", {id: id, isSelf: isSelf})
-                } else {
-                    console.log('batal')
                 }
             })
         }

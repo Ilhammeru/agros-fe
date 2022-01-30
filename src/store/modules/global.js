@@ -38,37 +38,24 @@ const actions = {
     setLoading(context, payload) {
         context.SET_LOADING = payload;
     },
-    async getAll() {
-        await this._vm.axios.get('/general')
-        .then((res) => {
-            console.log(res)
-        })
-        .catch(err => {
-            console.log('err general', err.response)
-        })
-    },
     async getMitra(context) {
         await this._vm.axios.get('/mitra')
         .then((res) => {
-            console.log('res mitra', res)
             context.commit('SET_MITRA', res.data.data)
         })
     },
     async getProfile(context) {
         await this._vm.axios.get('/profile')
         .then((res) => {
-            console.log('profile', res)
             context.commit('SET_PROFILE', res.data.data)
         })
         .catch(err => {
-            console.log('error profile', err)
         })
     },
     async delete(context, payload) {
         context.state.isLoading = true;
         await this._vm.axios.post('/delete', payload)
         .then((res) => {
-            console.log('res delete', res)
             context.state.isLoading = false;
             context.commit("SET_MITRA", res.data.data);
             if (res.data.status) {
@@ -85,7 +72,6 @@ const actions = {
         })
         .catch(err => {
             context.state.isLoading = false;
-            console.log('err delete', err)
         })
     },
     async update(context, payload) {
@@ -93,14 +79,12 @@ const actions = {
         context.state.errorReq = [];
         await this._vm.axios.patch('/update', payload)
         .then((res) => {
-            console.log('res update', res)
             context.state.isLoading = false;
             context.commit("SET_PROFILE", res.data.data)
             this._vm.$swal('Sukses', 'Update data berhasil', 'success')
         })
         .catch(err => {
             context.state.isLoading = false;
-            console.log('err update', err)
             let errors = err.response.data.errors;
             context.state.errorReq = errors;
         })
