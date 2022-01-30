@@ -87,6 +87,9 @@ export default {
         await this.$store.dispatch("auth/logout")
       }
   },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
   computed: {
     isLogin() {
       return this.$store.getters["global/isLogin"] || localStorage.getItem('isLogin')
