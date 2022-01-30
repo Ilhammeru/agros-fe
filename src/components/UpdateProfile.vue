@@ -2,6 +2,7 @@
     <div>
         <div class="main_update">
             <p class="main_update_title">Perbarui Profil</p>
+            <error-request :err="this.$store.getters['global/errorReq']" />
             <div class="form-group a_row">
                 <div class="a_col_6 a_col_sm_12 a_col_xs_12">
                     <div class="form-input">
