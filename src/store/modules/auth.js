@@ -84,6 +84,7 @@ const actions = {
         localStorage.removeItem('isLogin');
         context.rootState.global.isLogin = false;
         context.rootState.global.isLoading = false;
+        context.rootState.global.mitra = [];
         context.state.token = "";
         context.state.user = "";
         context.state.scope = "";
