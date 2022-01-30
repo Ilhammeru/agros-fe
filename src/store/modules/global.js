@@ -90,6 +90,7 @@ const actions = {
     },
     async update(context, payload) {
         context.state.isLoading = true;
+        context.state.errorReq = [];
         await this._vm.axios.patch('/update', payload)
         .then((res) => {
             console.log('res update', res)
